@@ -6,11 +6,11 @@
     <title></title>
     
     <link rel="stylesheet" type="text/css" href="third/bootstrap/4.3.1/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="third/datatables/1.10.19/jquery.datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
     
     <script src="third/jquery/3.4.1/jquery.min.js"></script>
     <script src="third/bootstrap/4.3.1/bootstrap.min.js"></script>
-    <script src="third/datatables/1.10.19/jquery.datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
     <script src="js/my_datatables.js"></script>
 </head>
