@@ -19,7 +19,7 @@ public partial class _Default : System.Web.UI.Page
     private void BindGridView()
     {
         MySqlConnection myCon = new MySqlConnection();
-        myCon.ConnectionString = "server=127.0.0.1;Userid=root;password='******';Port=3309;Database=jetloom;CharSet=utf8;";
+        myCon.ConnectionString = "server=127.0.0.1;Userid=root;password='******';Port=3309;Database=test;CharSet=utf8;";
         myCon.Open();
 
         string strSql = "select id, name, sex from person";
@@ -96,7 +96,7 @@ public partial class _Default : System.Web.UI.Page
             if ("FetchData" == strMethod)
             {
                 MySqlConnection myCon = new MySqlConnection();
-                myCon.ConnectionString = "server=127.0.0.1;Userid=root;password='******';Port=3309;Database=jetloom;CharSet=utf8;";
+                myCon.ConnectionString = "server=127.0.0.1;Userid=root;password='******';Port=3309;Database=test;CharSet=utf8;";
                 myCon.Open();
 
                 string strSql = "select ID, name, sex from person";
