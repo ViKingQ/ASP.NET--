@@ -1,7 +1,10 @@
 {
+    "draw": 1,
+    "recordsTotal": 57,
+    "recordsFiltered": 57,
 	"data":
 	[
 		[1001,"ZhangSan","Male"],
-		[1002,"LiSi","Female"],
+		[1002,"LiSi","Female"]
 	]
 }
