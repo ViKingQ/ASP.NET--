@@ -64,24 +64,19 @@ $(document).ready(function () {
             //ajax请求数据
             $.ajax({
                 type: "GET",
-                url: "data/array.txt",
+                //url: "data/array.txt",
+                url: "DataTables.aspx?method=FetchData",
                 cache: false, //禁用缓存
-                //data: param, //传入组装的参数
-                //dataType: "json",
+                data: param, //传入组装的参数
+                dataType: "json",
                 success: function (result) {
                     //封装返回数据
                     console.log("success");
                     console.log(data);
                     console.log(result);
-//                    var returnData = {};
-//                    returnData.draw = data.draw;//这里直接自行返回了draw计数器,应该由后台返回
-//                    returnData.recordsTotal = 2;//返回数据全部记录
-//                    returnData.recordsFiltered = 2;//后台不实现过滤功能，每次查询均视作全部结果
-//                    returnData.data = JSON.parse(result);//返回的数据列表
-//                    console.log(returnData);
-//                    //调用DataTables提供的callback方法，代表数据已封装完成并传回DataTables进行渲染
+                    //调用DataTables提供的callback方法，代表数据已封装完成并传回DataTables进行渲染
                     //此时的数据需确保正确无误，异常判断应在执行此回调前自行处理完毕
-                    callback(JSON.parse(result));
+                    callback(result);
                 },
                 error:function(data){
                     console.log("error");
