@@ -44,7 +44,7 @@ $(document).ready(function () {
         autoWidth: false, //禁用自动调整列宽
         stripeClasses: ["odd", "even"], //为奇偶行加上样式，兼容不支持CSS伪类的场合
         processing: true, //隐藏加载提示,自行处理
-        serverSide: true, //启用服务器端分页
+        serverSide: false, //启用服务器端分页
         searching: false, //禁用原生搜索
         orderMulti: false, //启用多列排序
         order: [], //取消默认排序查询,否则复选框一列会出现小箭头
@@ -54,6 +54,19 @@ $(document).ready(function () {
             "targets": 'nosort', //列的样式名
             "orderable": false //包含上样式名‘nosort'的禁止排序
         }],
+
+        columns: [
+            { "data": "id" },
+            { "data": "firstname" },
+            { "data": "lastname" },
+            { "data": "position" },
+            { "data": "office" },
+            { "data": "age" },
+            { "data": "startdate" },
+            { "data": "salary" },
+            { "data": "extn" },
+            { "data": "email" },
+        ],
 
         ajax: function (data, callback, settings) {
             //封装请求参数
@@ -65,18 +78,17 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 //url: "data/array.txt",
-                url: "DataTables.aspx?method=FetchData",
+                url: "DataTables.aspx?method=QueryData",
                 cache: false, //禁用缓存
                 data: param, //传入组装的参数
                 dataType: "json",
                 success: function (result) {
-                    //封装返回数据
-                    console.log("success");
-                    console.log(data);
-                    console.log(result);
-                    //调用DataTables提供的callback方法，代表数据已封装完成并传回DataTables进行渲染
-                    //此时的数据需确保正确无误，异常判断应在执行此回调前自行处理完毕
-                    callback(result);
+                    var resultdata = {};
+                    resultdata.draw = data.draw;
+                    resultdata.recordsTotal = 0;
+                    resultdata.recordsFiltered = 0;
+                    resultdata.data = result.Table;
+                    callback(resultdata);
                 },
                 error:function(data){
                     console.log("error");

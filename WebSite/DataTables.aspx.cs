@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Services;
-
+using System.Data;
+using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 
 public partial class DataTables : System.Web.UI.Page
@@ -15,21 +16,30 @@ public partial class DataTables : System.Web.UI.Page
 
     }
 
-    [WebMethod]
-    public static string FetchData()
+    private string QueryData()
     {
-        string strRet = "{\"draw\": 1, \"recordsTotal\": 57, \"recordsFiltered\": 57, \"data\":[[1001,\"ZhangSan\",\"Male\"],[1002,\"LiSi\",\"Female\"]]}";
-        return strRet;
+        MySqlConnection myCon = new MySqlConnection();
+        myCon.ConnectionString = "server=127.0.0.1;Userid=root;password='******';Port=3309;Database=test;CharSet=utf8;";
+        myCon.Open();
+
+        string strSql = "select id,firstname,lastname,position,office,age,startdate,salary,extn,email from person";
+
+        MySqlDataAdapter dataAdapter = new MySqlDataAdapter(strSql, myCon);
+        DataSet ds = new DataSet();
+        dataAdapter.Fill(ds);
+        myCon.Close();
+
+        return JsonConvert.SerializeObject(ds);        
     }
 
     public override void ProcessRequest(HttpContext context)
     {
         base.ProcessRequest(context);
         string strMethod = context.Request.QueryString["method"];
-        if (!string.IsNullOrEmpty(strMethod) && "FetchData" == strMethod)
+        if ("QueryData" == strMethod)
         {
             context.Response.Clear();
-            context.Response.Write(FetchData());
+            context.Response.Write(QueryData());
         }
     }
 }

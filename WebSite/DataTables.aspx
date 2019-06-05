@@ -4,14 +4,13 @@
 <html>
 <head runat="server">
     <title></title>
-    
     <link rel="stylesheet" type="text/css" href="third/bootstrap/4.3.1/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" />
     <script src="third/jquery/3.4.1/jquery.min.js"></script>
     <script src="third/bootstrap/4.3.1/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script src="js/my_datatables.js"></script>
 </head>
 <body>
@@ -23,17 +22,38 @@
                     DataTables Example</h6>
             </div>
             <div class="card-body">
-                <table id="my_datatables" class="table">
+                <table id="my_datatables" class="table display responsive nowrap" style="width: 100%">
                     <thead>
                         <tr>
                             <th>
                                 ID
                             </th>
                             <th>
-                                Name
+                                First name
                             </th>
                             <th>
-                                Sex
+                                Last name
+                            </th>
+                            <th>
+                                Position
+                            </th>
+                            <th>
+                                Office
+                            </th>
+                            <th>
+                                Age
+                            </th>
+                            <th>
+                                Start date
+                            </th>
+                            <th>
+                                Salary
+                            </th>
+                            <th>
+                                Extn.
+                            </th>
+                            <th>
+                                E-mail
                             </th>
                         </tr>
                     </thead>
