@@ -15,6 +15,12 @@
 
 <body>
     <form id="form" runat="server">
+        <div class=" text-center">
+            <a href="DataTables.aspx">DataTables</a>
+            <hr />
+            <a href="Highcharts.aspx">Highcharts</a>
+            <hr />
+        </div>
     </form>
 </body>
 </html>
